@@ -8,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../../../core/resources/assets_value.dart';
 import '../../../../../core/widgets/app_logo_and_title.dart';
 import '../../../../../core/widgets/custom_text_form_feild.dart';
+import 'login_forget_password.dart';
 import 'login_form.dart';
 
 class LoginViewBody extends StatelessWidget {
@@ -20,10 +21,10 @@ class LoginViewBody extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 18.w),
         child: SingleChildScrollView(
-
           child: Column(
             children: [
-              SizedBox(height: 15.h,),
+              SizedBox(height: 15.h),
+              // App LOGO
               AppLogoWidget(),
               Text(
                 'ANIMOOO',
@@ -54,47 +55,41 @@ class LoginViewBody extends StatelessWidget {
                   ),
                 ),
               ),
-              LoginForm(formKey: GlobalKey<FormState>(),),
-              Align(
-                alignment: AlignmentDirectional.centerEnd,
-                child: TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    'Forget Password?',
-                    style: TextStyle(
-                      fontFamily:
-                          GoogleFonts.poppins().fontFamily,
-                      decoration: TextDecoration.underline,
-                      decorationColor: ColorManger.primary,
-                      decorationThickness: 2,
-                      color: ColorManger.primary,
-                      fontSize: 12.sp,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
+              // Login Form Feilds
+              LoginForm(
+                formKey: GlobalKey<FormState>(),
+                visibility: true,
+                onPressedAtEye: () {},
               ),
+              // Forget Password
+              LoginForgetPassword(),
               SizedBox(height: 25.h),
               SizedBox(
                 width: double.infinity,
                 height: 44.h,
                 child: ElevatedButton(
-                  onPressed: () {},style: ElevatedButton.styleFrom(
-                  backgroundColor: ColorManger.primary,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.r),
-                  )
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: ColorManger.primary,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(
+                        10.r,
+                      ),
+                    ),
+                  ),
+                  child: Text(
+                    'Login',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w500,
+                      fontFamily:
+                          GoogleFonts.poppins().fontFamily,
+                    ),
+                  ),
                 ),
-                  child: Text('Login',style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w500,
-                    fontFamily: GoogleFonts.poppins().fontFamily,
-                  ),),
-                ),
-
-              ),SizedBox(height: 15.h),
-
+              ),
+              SizedBox(height: 15.h),
             ],
           ),
         ),

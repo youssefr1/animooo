@@ -6,8 +6,10 @@ import '../../../../../core/resources/color_manger.dart';
 import '../../../../../core/widgets/custom_text_form_feild.dart';
 
 class LoginForm extends StatelessWidget {
-  const LoginForm({super.key, required this.formKey});
+  const LoginForm({super.key, required this.formKey, required this.onPressedAtEye,  this.visibility});
 final GlobalKey<FormState> formKey ;
+  final VoidCallback onPressedAtEye;
+  final bool? visibility;
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -24,7 +26,7 @@ final GlobalKey<FormState> formKey ;
                 return null;
               }
             } ,
-            hintText: 'Enter your email address',
+            hintText: 'Enter your email address', keyboardType: TextInputType.emailAddress,
           ),
           SizedBox(height: 16.h),
           Align(
@@ -40,16 +42,24 @@ final GlobalKey<FormState> formKey ;
           ),
           SizedBox(height: 6.h),
           Custom_text_form_feild(
+            validator:(value) {
+               if(value== null || value.trim().isEmpty){
+                 return 'Enter your password';
+                 //Todo: add validation
+               }else{
+                 return null;
+               }
+            } ,
             obscureText: true,
             hintText: '********',
             suffixIcon: IconButton(
-              onPressed: () {},
+              onPressed: onPressedAtEye,
               icon: Icon(
-                Icons.remove_red_eye,
+                visibility == true ? Icons.visibility:Icons.visibility_off,
                 size: 22.sp,
                 color: Color(0xff686F80),
               ),
-            ),
+            ), keyboardType: TextInputType.visiblePassword,
           ),
         ],
       ),

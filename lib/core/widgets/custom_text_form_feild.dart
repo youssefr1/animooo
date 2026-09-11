@@ -7,13 +7,14 @@ class Custom_text_form_feild extends StatelessWidget {
   const Custom_text_form_feild({
     super.key,
     this.hintText,
-    this.suffixIcon,   this.validator, this.obscureText =false,
+    this.suffixIcon,   this.validator, this.obscureText =false, required this.keyboardType,
   });
 
   final String? hintText;
   final Widget? suffixIcon;
   final bool obscureText;
   final FormFieldValidator?validator ;
+  final TextInputType keyboardType;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +27,7 @@ class Custom_text_form_feild extends StatelessWidget {
       obscureText:obscureText ,
       obscuringCharacter: '*',
       validator:validator,
+      keyboardType: keyboardType,
       decoration: InputDecoration(
 
         isDense: true,
