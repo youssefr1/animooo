@@ -11,7 +11,6 @@ class LoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-
         body: LoginViewBody(),
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.all(10),
