@@ -7,13 +7,17 @@ class Custom_text_form_feild extends StatelessWidget {
   const Custom_text_form_feild({
     super.key,
     this.hintText,
-    this.suffixIcon,   this.validator, this.obscureText =false, required this.keyboardType,
+    this.suffixIcon,
+    this.validator,
+    this.obscureText = false,
+    required this.keyboardType,
   });
 
   final String? hintText;
   final Widget? suffixIcon;
   final bool obscureText;
-  final FormFieldValidator?validator ;
+  final FormFieldValidator? validator;
+
   final TextInputType keyboardType;
 
   @override
@@ -24,20 +28,22 @@ class Custom_text_form_feild extends StatelessWidget {
         color: ColorManger.primary,
       ),
       textAlignVertical: TextAlignVertical.center,
-      obscureText:obscureText ,
+      obscureText: obscureText,
       obscuringCharacter: '*',
-      validator:validator,
+      onTapOutside: (event) {
+        FocusScope.of(context).unfocus();
+      },
+      validator: validator,
       keyboardType: keyboardType,
       decoration: InputDecoration(
-
         isDense: true,
         contentPadding: EdgeInsets.symmetric(
           horizontal: 12.w,
           vertical: 16,
         ),
         suffixIcon: suffixIcon,
-
-        fillColor: const Color(0xffF6F6F6),
+        filled: true,
+        fillColor: const Color(0xB6F5F5F5),
         hintText: hintText,
         hintStyle: TextStyle(
           fontSize: 15.sp,
@@ -45,6 +51,12 @@ class Custom_text_form_feild extends StatelessWidget {
           color: Color(0xff686F80),
         ),
         border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.r),
+          borderSide: const BorderSide(
+            color: Color(0xffF6F6F6),
+          ),
+        ),
+        enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.r),
           borderSide: const BorderSide(
             color: Color(0xffF6F6F6),
