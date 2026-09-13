@@ -36,7 +36,7 @@ class Custom_text_form_feild extends StatelessWidget {
           vertical: 16,
         ),
         suffixIcon: suffixIcon,
-        filled: true,
+
         fillColor: const Color(0xffF6F6F6),
         hintText: hintText,
         hintStyle: TextStyle(

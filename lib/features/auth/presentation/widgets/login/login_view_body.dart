@@ -61,7 +61,7 @@ class LoginViewBody extends StatelessWidget {
               ),
               // Forget Password
               ForgetPasswordLogin(onPressedAtForgetPassword:(){} ,),
-              SizedBox(height: 25.h),
+              SizedBox(height: 65.h),
               // Login Button
               CustomButton(text: 'Log In', onPressed: () {  },),
               SizedBox(height: 15.h),

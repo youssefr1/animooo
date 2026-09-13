@@ -55,7 +55,7 @@ final GlobalKey<FormState> formKey ;
             suffixIcon: IconButton(
               onPressed: onPressedAtEye,
               icon: Icon(
-                visibility == true ? Icons.visibility:Icons.visibility_off,
+                visibility == true ? Icons.visibility_outlined:Icons.visibility_off_outlined,
                 size: 22.sp,
                 color: Color(0xff686F80),
               ),

@@ -12,24 +12,31 @@ class ForgetPasswordLogin extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Align(
-          alignment: AlignmentDirectional.centerEnd,
-          child: TextButton(
-            onPressed:onPressedAtForgetPassword,
-            child: Text(
-              'Forget Password?',
-              style: TextStyle(
-                fontFamily:
-                GoogleFonts.poppins().fontFamily,
-                decoration: TextDecoration.underline,
-                decorationColor: ColorManger.primary,
-                decorationThickness: 2,
-                color: ColorManger.primary,
-                fontSize: 12.sp,
-                fontWeight: FontWeight.w500,
+        SizedBox(
+          height: 0,
+          child: Stack(
+            clipBehavior: Clip.none,
+            children:[ Positioned(
+              top:-10 ,
+              right: 0,
+              child: TextButton(
+                onPressed:onPressedAtForgetPassword,
+                child: Text(
+                  'Forget Password...?',
+                  style: TextStyle(
+                    fontFamily:
+                    GoogleFonts.poppins().fontFamily,
+                    decoration: TextDecoration.underline,
+                    decorationColor: ColorManger.primary,
+                    decorationThickness: 2,
+                    color: ColorManger.primary,
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
               ),
             ),
-          ),
+          ]),
         ),
       ],
     );
