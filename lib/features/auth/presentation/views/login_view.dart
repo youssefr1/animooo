@@ -4,6 +4,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../widgets/login/botton_nav_bar_login.dart';
+
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
 
@@ -12,35 +14,9 @@ class LoginView extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: LoginViewBody(),
-        bottomNavigationBar: Padding(
-          padding: const EdgeInsets.all(10),
-          child: RichText(
-            textAlign: TextAlign.center,
-            text: TextSpan(
-              style: GoogleFonts.poppins(
-                color: ColorManger.greyColor,
-                fontSize: 14,
-              ),
-              children: [
-                const TextSpan(
-                  text: "Don't have an account? ",
-                ),
-                TextSpan(
-                  recognizer: TapGestureRecognizer()..onTap = () {
-                    print('hello');
-                  },
-                  text: "Sign Up Now",
-                  style: GoogleFonts.poppins(
-                    color: ColorManger.primary,
-                    fontWeight: FontWeight.w600,
-                    decoration: TextDecoration.underline,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
+        bottomNavigationBar: BottomNavBarLogin(onPressedAtSignUpNow: () {},),
       ),
     );
   }
 }
+

@@ -1,14 +1,12 @@
 import 'package:animooo/core/resources/color_manger.dart';
-import 'package:animooo/core/resources/width_manger.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../../../core/resources/assets_value.dart';
 import '../../../../../core/widgets/app_logo_and_title.dart';
-import '../../../../../core/widgets/custom_text_form_feild.dart';
-import 'login_forget_password.dart';
+import '../../../../../core/widgets/custom_button.dart';
+import 'forget_password_login.dart';
 import 'login_form.dart';
 
 class LoginViewBody extends StatelessWidget {
@@ -55,40 +53,17 @@ class LoginViewBody extends StatelessWidget {
                   ),
                 ),
               ),
-              // Login Form Feilds
+              // Login Form Fields
               LoginForm(
                 formKey: GlobalKey<FormState>(),
                 visibility: true,
                 onPressedAtEye: () {},
               ),
               // Forget Password
-              LoginForgetPassword(),
+              ForgetPasswordLogin(onPressedAtForgetPassword:(){} ,),
               SizedBox(height: 25.h),
-              SizedBox(
-                width: double.infinity,
-                height: 44.h,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: ColorManger.primary,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(
-                        10.r,
-                      ),
-                    ),
-                  ),
-                  child: Text(
-                    'Login',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w500,
-                      fontFamily:
-                          GoogleFonts.poppins().fontFamily,
-                    ),
-                  ),
-                ),
-              ),
+              // Login Button
+              CustomButton(text: 'Log In', onPressed: () {  },),
               SizedBox(height: 15.h),
             ],
           ),

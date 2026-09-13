@@ -5,9 +5,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../../core/resources/color_manger.dart';
 
-class LoginForgetPassword extends StatelessWidget {
-  const LoginForgetPassword({super.key});
-
+class ForgetPasswordLogin extends StatelessWidget {
+  const ForgetPasswordLogin({super.key, required this.onPressedAtForgetPassword});
+  final void Function() onPressedAtForgetPassword ;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -15,7 +15,7 @@ class LoginForgetPassword extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional.centerEnd,
           child: TextButton(
-            onPressed: () {},
+            onPressed:onPressedAtForgetPassword,
             child: Text(
               'Forget Password?',
               style: TextStyle(
