@@ -5,15 +5,15 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../../core/resources/color_manger.dart';
 
-class BottomNavBarLogin extends StatelessWidget {
-  const BottomNavBarLogin({
+class BottonNavBarSignUp extends StatelessWidget {
+  const BottonNavBarSignUp({
     super.key, required this.onPressedAtSignUpNow,
   });
-final void Function() onPressedAtSignUpNow ;
+  final void Function() onPressedAtSignUpNow ;
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.only(bottom: 20,top: 8),
       child: RichText(
         textAlign: TextAlign.center,
         text: TextSpan(
@@ -23,11 +23,11 @@ final void Function() onPressedAtSignUpNow ;
           ),
           children: [
             const TextSpan(
-              text: "Don't have an account? ",
+              text: "Have an account already? ",
             ),
             TextSpan(
               recognizer: TapGestureRecognizer()..onTap =onPressedAtSignUpNow,
-              text: "Sign Up Now",
+              text: "Log in",
               style: GoogleFonts.poppins(
                 color: ColorManger.primary,
                 fontWeight: FontWeight.bold,
