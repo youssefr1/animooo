@@ -10,28 +10,26 @@ final String text;
 final void Function() onPressed;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      height: 44.h,
-      child: ElevatedButton(
-        onPressed: onPressed,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: ColorManger.primary,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(
-              10.r,
-            ),
+    return ElevatedButton(
+      onPressed: onPressed,
+
+      style: ElevatedButton.styleFrom(
+        minimumSize: Size(double.infinity, 44.h),
+        backgroundColor: ColorManger.primary,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(
+            10.r,
           ),
         ),
-        child: Text(
-          text,
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 14.sp,
-            fontWeight: FontWeight.w500,
-            fontFamily:
-            GoogleFonts.poppins().fontFamily,
-          ),
+      ),
+      child: Text(
+        text,
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 14.sp,
+          fontWeight: FontWeight.w500,
+          fontFamily:
+          GoogleFonts.poppins().fontFamily,
         ),
       ),
     );

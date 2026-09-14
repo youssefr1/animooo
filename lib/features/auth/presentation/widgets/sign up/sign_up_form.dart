@@ -1,15 +1,12 @@
-import 'package:animooo/features/auth/presentation/widgets/sign%20up/form%20feilds/password_form_field_sign_up.dart';
-import 'package:animooo/features/auth/presentation/widgets/sign%20up/form%20feilds/phone_form_field_sign_up.dart';
+import 'package:animooo/features/auth/presentation/widgets/sign%20up/required_rules_for_password_sign_up.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
-
-import '../../../../../core/resources/color_manger.dart';
-import '../../../../../core/widgets/custom_text_form_feild.dart';
-import 'form feilds/confirm_password_form_field_sign_up.dart';
-import 'form feilds/email_form_field_sign_up.dart';
-import 'form feilds/first_name_form_field_sign_up.dart';
-import 'form feilds/last_name_form_field_sign_up.dart';
+import 'form fields/confirm_password_form_field_sign_up.dart';
+import 'form fields/email_form_field_sign_up.dart';
+import 'form fields/first_name_form_field_sign_up.dart';
+import 'form fields/last_name_form_field_sign_up.dart';
+import 'form fields/password_form_field_sign_up.dart';
+import 'form fields/phone_form_field_sign_up.dart';
 
 class SignUpForm extends StatelessWidget {
   const SignUpForm({super.key, required this.formKey, required this.onPressedAtEye, this.visibility});
@@ -27,8 +24,10 @@ class SignUpForm extends StatelessWidget {
           EmailFormFieldSignUp(),
           PhoneFormFieldSignUp(),
           PasswordFormFieldSignUp(onPressedAtEye: () {}, visibilepassword: true,),
+          SizedBox(height: 8.h,),
+          RequiredRulesForPasswordSignUp(),
           ConfirmPasswordFormFieldSignUp(onPreesedAtEye: () {  }, visibleConfirm: true,)
-         
+
 
 
         ],

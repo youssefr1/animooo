@@ -1,3 +1,4 @@
+import 'package:animooo/features/auth/presentation/widgets/sign%20up/required_rules_for_password_sign_up.dart';
 import 'package:animooo/features/auth/presentation/widgets/sign%20up/sign_up_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -45,6 +46,7 @@ class SignUpBody extends StatelessWidget {
 
               // Login Form Fields
               SignUpForm(formKey:GlobalKey<FormState>() , onPressedAtEye: () {  },visibility:true ,),
+
 
               SizedBox(height: 65.h),
               // Login Button

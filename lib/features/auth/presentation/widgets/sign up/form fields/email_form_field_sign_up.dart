@@ -33,7 +33,7 @@ class EmailFormFieldSignUp extends StatelessWidget {
               return null;
             }
           } ,
-          hintText: 'Enter your email address', keyboardType: TextInputType.emailAddress,
+          hintText: 'Enter your email address', keyboardType: TextInputType.emailAddress, controller: TextEditingController(),
         ),
       ],
     );
