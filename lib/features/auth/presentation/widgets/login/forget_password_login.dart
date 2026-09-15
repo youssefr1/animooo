@@ -13,7 +13,7 @@ class ForgetPasswordLogin extends StatelessWidget {
     return Column(
       children: [
         SizedBox(
-          height: 0,
+          height: 61,
           child: Stack(
             clipBehavior: Clip.none,
             children:[ Positioned(

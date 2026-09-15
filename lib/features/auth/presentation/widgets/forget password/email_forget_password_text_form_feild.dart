@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -5,9 +6,10 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../../../../core/resources/color_manger.dart';
 import '../../../../../../core/widgets/custom_text_form_feild.dart';
 
-class EmailFormFieldSignUp extends StatelessWidget {
-  const EmailFormFieldSignUp({super.key});
-
+class EmailForgetPasswordTextFormField extends StatelessWidget {
+  const EmailForgetPasswordTextFormField({super.key, required this.onPreesedAtEye, required this.visibleConfirm});
+  final bool visibleConfirm ;
+  final void Function() onPreesedAtEye;
   @override
   Widget build(BuildContext context) {
     return Column(

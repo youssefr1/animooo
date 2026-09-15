@@ -1,7 +1,10 @@
 import 'package:animooo/core/resources/color_manger.dart';
+import 'package:animooo/core/routes/routes.dart';
+import 'package:animooo/features/auth/presentation/views/forget_password_view.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../../core/widgets/app_logo_and_title.dart';
@@ -60,8 +63,10 @@ class LoginViewBody extends StatelessWidget {
                 onPressedAtEye: () {},
               ),
               // Forget Password
-              ForgetPasswordLogin(onPressedAtForgetPassword:(){} ,),
-              SizedBox(height: 65.h),
+              ForgetPasswordLogin(onPressedAtForgetPassword:(){
+                context.push(AppRouter.forgetPassword);
+              } ,),
+              SizedBox(height: 25.h),
               // Login Button
               CustomButton(text: 'Log In', onPressed: () {  },),
               SizedBox(height: 15.h),
