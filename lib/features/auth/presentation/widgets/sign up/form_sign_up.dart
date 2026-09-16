@@ -31,7 +31,7 @@ class FormSignUp extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CustomRequiredFeild(text: 'First Name', hintText: 'Enter your first name', controller: TextEditingController()),
+          CustomRequiredFeild(text: 'First Name ', hintText: 'Enter your first name', controller: TextEditingController()),
           CustomRequiredFeild(text: 'Last Name', hintText: 'Enter your Last name', controller: TextEditingController()),
           CustomRequiredFeild(text: 'Email', hintText: 'Enter your email address', controller: TextEditingController()),
           CustomRequiredFeild(text: 'Phone', hintText: 'Enter your Phone ', controller: TextEditingController()),
