@@ -8,13 +8,14 @@ import '../../../../../../core/widgets/custom_text_form_feild.dart';
 
 class CustomRequiredFeild extends StatelessWidget {
   const CustomRequiredFeild(
-      {super.key,  required this.text, required this.hintText, required this.controller});
+      {super.key,  required this.text, required this.hintText, required this.controller,  this.validator});
 
   final String text;
 
   final String hintText;
 
  final TextEditingController controller;
+ final FormFieldValidator? validator;
 
 
 
@@ -36,16 +37,7 @@ class CustomRequiredFeild extends StatelessWidget {
         ),
         SizedBox(height: 6.h),
         Custom_text_form_feild(
-          validator: (value) {
-            if (value == null || value
-                .trim()
-                .isEmpty) {
-              return 'Enter your email address';
-              //Todo: add validation
-            } else {
-              return null;
-            }
-          },
+          validator: validator,
           hintText: hintText,
           keyboardType: TextInputType.emailAddress,
           controller: controller,
