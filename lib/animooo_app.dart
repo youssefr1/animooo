@@ -10,7 +10,7 @@ class AnimoooApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(
-        statusBarColor: Color(0xFFFFF5FF),
+        statusBarColor: Colors.white,
         statusBarIconBrightness: Brightness.dark,
         statusBarBrightness: Brightness.light,
       ),
@@ -22,6 +22,10 @@ class AnimoooApp extends StatelessWidget {
           return MaterialApp.router(
             routerConfig: AppRouter.router,
             title: 'Animooo',
+            theme: ThemeData(
+              scaffoldBackgroundColor: Colors.white,
+              useMaterial3: true,
+            ),
             debugShowCheckedModeBanner: false,
           );
         },

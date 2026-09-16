@@ -1,25 +1,21 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../../../core/resources/color_manger.dart';
 import '../../../../../../core/widgets/custom_text_form_feild.dart';
+class PhoneFormFieldSignUp extends StatelessWidget {
+  const PhoneFormFieldSignUp({super.key});
 
-class PasswordFormFieldSignUp extends StatelessWidget {
-  const PasswordFormFieldSignUp({super.key, required this.onPressedAtEye, required this.visibilepassword});
-final bool visibilepassword ;
- final void Function()onPressedAtEye;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        // Password Form Field for SignUp
         SizedBox(height: 16.h),
         Align(
           alignment: Alignment.centerLeft,
           child: Text(
-            'Password',
+            'Phone',
             style: GoogleFonts.poppins(
               fontSize: 16.sp,
               fontWeight: FontWeight.w400,
@@ -29,24 +25,15 @@ final bool visibilepassword ;
         ),
         SizedBox(height: 6.h),
         Custom_text_form_feild(
-          validator:(value) {
+          validator: (value) {
             if(value== null || value.trim().isEmpty){
-              return 'Enter your password';
+              return 'Enter your Phone Number';
               //Todo: add validation
             }else{
               return null;
             }
           } ,
-          obscureText: !visibilepassword,
-          hintText: '*********',
-          suffixIcon: IconButton(
-            onPressed: onPressedAtEye,
-            icon: Icon(
-             visibilepassword  ? Icons.visibility_outlined:Icons.visibility_off_outlined,
-              size: 22.sp,
-              color: Color(0xff686F80),
-            ),
-          ), keyboardType: TextInputType.visiblePassword,
+          hintText: 'Enter your Phone', keyboardType: TextInputType.phone, controller: TextEditingController(),
         ),
       ],
     );

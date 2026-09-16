@@ -1,3 +1,4 @@
+import 'package:animooo/features/auth/presentation/views/forget_password_view.dart';
 import 'package:animooo/features/auth/presentation/views/login_view.dart';
 import 'package:animooo/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,7 @@ class AppRouter {
   static const String splash = '/splash';
   static const String login = '/login';
   static const String signup = '/signup';
+  static const String forgetPassword = '/forgetPassword';
 
   static final GoRouter router = GoRouter(
     initialLocation: splash,
@@ -29,6 +31,11 @@ class AppRouter {
         path: signup,
         builder: (BuildContext context, GoRouterState state) {
           return const SignUpView();
+        },
+      ), GoRoute(
+        path: forgetPassword,
+        builder: (BuildContext context, GoRouterState state) {
+          return const ForgetPasswordView();
         },
       ),
     ],

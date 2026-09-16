@@ -26,7 +26,7 @@ final GlobalKey<FormState> formKey ;
                 return null;
               }
             } ,
-            hintText: 'Enter your email address', keyboardType: TextInputType.emailAddress,
+            hintText: 'Enter your email address', keyboardType: TextInputType.emailAddress, controller: TextEditingController(),
           ),
           SizedBox(height: 16.h),
           Align(
@@ -59,7 +59,7 @@ final GlobalKey<FormState> formKey ;
                 size: 22.sp,
                 color: Color(0xff686F80),
               ),
-            ), keyboardType: TextInputType.visiblePassword,
+            ), keyboardType: TextInputType.visiblePassword, controller: TextEditingController(),
           ),
         ],
       ),
