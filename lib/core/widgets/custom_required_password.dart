@@ -6,10 +6,26 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../../../../core/resources/color_manger.dart';
 import '../../../../../../core/widgets/custom_text_form_feild.dart';
 
-class ConfirmPasswordFormFieldSignUp extends StatelessWidget {
-  const ConfirmPasswordFormFieldSignUp({super.key, required this.onPreesedAtEye, required this.visibleConfirm});
-final bool visibleConfirm ;
-final void Function() onPreesedAtEye;
+class CustomRequiredPassword extends StatelessWidget {
+  const CustomRequiredPassword({
+    super.key,
+    required this.onPressedAtEye,
+    required this.visibilepassword,
+    required this.text,
+    required this.hintText,
+    required this.controller,
+     this.validator,
+  });
+
+  final bool visibilepassword;
+
+  final void Function() onPressedAtEye;
+  final String text;
+  final String hintText;
+  final TextEditingController controller;
+
+  final FormFieldValidator? validator;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -19,7 +35,7 @@ final void Function() onPreesedAtEye;
         Align(
           alignment: Alignment.centerLeft,
           child: Text(
-            'Confirm Password',
+            text,
             style: GoogleFonts.poppins(
               fontSize: 16.sp,
               fontWeight: FontWeight.w400,
@@ -29,24 +45,21 @@ final void Function() onPreesedAtEye;
         ),
         SizedBox(height: 6.h),
         Custom_text_form_feild(
-          validator:(value) {
-            if(value== null || value.trim().isEmpty){
-              return 'Enter your password';
-              //Todo: add validation
-            }else{
-              return null;
-            }
-          } ,
-          obscureText: !visibleConfirm,
-          hintText: '*********',
+          validator: validator,
+          obscureText: !visibilepassword,
+          hintText: hintText,
           suffixIcon: IconButton(
-            onPressed: onPreesedAtEye,
+            onPressed: onPressedAtEye,
             icon: Icon(
-              visibleConfirm ? Icons.visibility_outlined:Icons.visibility_off_outlined,
+              visibilepassword
+                  ? Icons.visibility_outlined
+                  : Icons.visibility_off_outlined,
               size: 22.sp,
               color: Color(0xff686F80),
             ),
-          ), keyboardType: TextInputType.visiblePassword, controller: TextEditingController(),
+          ),
+          keyboardType: TextInputType.visiblePassword,
+          controller: controller,
         ),
       ],
     );

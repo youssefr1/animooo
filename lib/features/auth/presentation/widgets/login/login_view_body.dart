@@ -45,17 +45,7 @@ class LoginViewBody extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 30.h),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  'Email',
-                  style: GoogleFonts.poppins(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w400,
-                    color: ColorManger.greyColor,
-                  ),
-                ),
-              ),
+
               // Login Form Fields
               LoginForm(
                 formKey: GlobalKey<FormState>(),

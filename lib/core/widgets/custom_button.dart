@@ -18,7 +18,7 @@ final void Function() onPressed;
         backgroundColor: ColorManger.primary,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(
-            10.r,
+            5.r,
           ),
         ),
       ),
