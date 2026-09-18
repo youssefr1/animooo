@@ -1,9 +1,11 @@
 import 'package:animooo/core/resources/color_manger.dart';
+import 'package:animooo/core/routes/routes.dart';
 import 'package:animooo/core/widgets/custom_button.dart';
 import 'package:animooo/core/widgets/custom_required_feild.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 
@@ -47,7 +49,9 @@ class ForgetPasswordBody extends StatelessWidget {
             Gap(56.h),
             CustomRequiredFeild( text: 'Email', hintText: 'Enter your email address', controller: TextEditingController(),),
             Gap(100),
-            CustomButton(text: 'Send  Code', onPressed: (){}),
+            CustomButton(text: 'Send  Code', onPressed: (){
+              context.push(AppRouter.otp);
+            }),
             Gap(50),
       
           ],
