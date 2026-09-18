@@ -1,5 +1,6 @@
 import 'package:animooo/features/auth/presentation/views/forget_password_view.dart';
 import 'package:animooo/features/auth/presentation/views/login_view.dart';
+import 'package:animooo/features/auth/presentation/views/otp_verification_view.dart';
 import 'package:animooo/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -11,6 +12,7 @@ class AppRouter {
   static const String login = '/login';
   static const String signup = '/signup';
   static const String forgetPassword = '/forgetPassword';
+  static const String otp = '/otp';
 
   static final GoRouter router = GoRouter(
     initialLocation: splash,
@@ -36,6 +38,11 @@ class AppRouter {
         path: forgetPassword,
         builder: (BuildContext context, GoRouterState state) {
           return const ForgetPasswordView();
+        },
+      ),GoRoute(
+        path: otp,
+        builder: (BuildContext context, GoRouterState state) {
+          return const OtpVerificationView();
         },
       ),
     ],
