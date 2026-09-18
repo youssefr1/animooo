@@ -25,7 +25,7 @@ class OtpVerificationBodyView extends StatelessWidget {
 
           },),
           Gap(41),
-          CustomButton(text: 'Confirm', onPressed: (){}),
+          CustomButton(text: 'Confirm ', onPressed: (){}),
           Center(
             child: TextButton(onPressed: (){}, child: Text('Resend Code ',style: TextStyle(
               color: ColorManger.greyColor,
