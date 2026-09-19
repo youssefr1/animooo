@@ -55,7 +55,7 @@ class RequiredRulesForPasswordSignUp
           itemCount:
               ConstsListsManger.passwordRequirements.length,
         ),
-        Gap(16.h),
+
       ],
     );
   }

@@ -5,6 +5,7 @@ import 'package:animooo/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/auth/presentation/views/create_new_password_veiw.dart';
 import '../../features/auth/presentation/views/sign_up_view.dart';
 
 class AppRouter {
@@ -13,6 +14,8 @@ class AppRouter {
   static const String signup = '/signup';
   static const String forgetPassword = '/forgetPassword';
   static const String otp = '/otp';
+  static const String createPassword = '/createPassword';
+
 
   static final GoRouter router = GoRouter(
     initialLocation: splash,
@@ -43,6 +46,12 @@ class AppRouter {
         path: otp,
         builder: (BuildContext context, GoRouterState state) {
           return const OtpVerificationView();
+        },
+      ),
+      GoRoute(
+        path: createPassword,
+        builder: (BuildContext context, GoRouterState state) {
+          return const CreateNewPasswordVeiw();
         },
       ),
     ],
