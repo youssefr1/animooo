@@ -16,44 +16,47 @@ class RequiredRulesForPasswordSignUp
       children: [
         TitleRules(),
         SizedBox(height: 11.h),
-        ListView.separated(
-          shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-          itemBuilder: (context, index) {
-            return RichText(
-              textAlign: TextAlign.start,
-              text: TextSpan(
-                children: [
-                  WidgetSpan(
-                    alignment: PlaceholderAlignment.baseline,
-                    baseline: TextBaseline.alphabetic,
-                    child: Icon(
-                      Icons.circle,
-                      size: 5.sp,
-                      color: Color(0xffFC1B1A),
+        SizedBox(
+          height: 80.h,
+          child: ListView.separated(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            itemBuilder: (context, index) {
+              return RichText(
+                textAlign: TextAlign.start,
+                text: TextSpan(
+                  children: [
+                    WidgetSpan(
+                      alignment: PlaceholderAlignment.baseline,
+                      baseline: TextBaseline.alphabetic,
+                      child: Icon(
+                        Icons.circle,
+                        size: 5.sp,
+                        color: Color(0xffFC1B1A),
+                      ),
                     ),
-                  ),
-                  WidgetSpan(child: SizedBox(width: 3.w)),
-                  TextSpan(
-                    text: ConstsListsManger
-                        .passwordRequirements[index],
-                    style: TextStyle(
-                      fontFamily:
-                          GoogleFonts.poppins().fontFamily,
-                      fontSize: 8.sp,
-                      color: Color(0xffFC1B1A),
-                      fontWeight: FontWeight.w600,
+                    WidgetSpan(child: SizedBox(width: 3.w)),
+                    TextSpan(
+                      text: ConstsListsManger
+                          .passwordRequirements[index],
+                      style: TextStyle(
+                        fontFamily:
+                            GoogleFonts.poppins().fontFamily,
+                        fontSize: 8.sp,
+                        color: Color(0xffFC1B1A),
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            );
-          },
-          separatorBuilder: (context, index) {
-            return SizedBox(height: 5.h);
-          },
-          itemCount:
-              ConstsListsManger.passwordRequirements.length,
+                  ],
+                ),
+              );
+            },
+            separatorBuilder: (context, index) {
+              return SizedBox(height: 5.h);
+            },
+            itemCount:
+                ConstsListsManger.passwordRequirements.length,
+          ),
         ),
 
       ],

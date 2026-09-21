@@ -37,7 +37,6 @@ class CreateNewPasswordBody extends StatelessWidget {
             ),
             Gap(10),
             RequiredRulesForPasswordSignUp(),
-            Gap(10),
             CustomRequiredPassword(
               onPressedAtEye: () {},
               visibilepassword: true,
