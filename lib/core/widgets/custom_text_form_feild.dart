@@ -34,62 +34,60 @@ class CustomTextFormFeild extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 44.h,
-      child: TextFormField(
-        onChanged: onChanged,
-        focusNode: focusNode,
-        textAlign: textAlign ?? TextAlign.start,
-        controller: controller,
-        style: TextStyle(
-          fontSize: 16.sp,
-          color: ColorManger.primary,
+    return TextFormField(
+
+      onChanged: onChanged,
+      focusNode: focusNode,
+      textAlign: textAlign ?? TextAlign.start,
+      controller: controller,
+      style: TextStyle(
+        fontSize: 16.sp,
+        color: ColorManger.primary,
+      ),
+      textAlignVertical: TextAlignVertical.center,
+      obscureText: obscureText,
+      obscuringCharacter: '*',
+      onTapOutside: (event) {
+        FocusScope.of(context).unfocus();
+      },
+      validator: validator,
+      keyboardType: keyboardType,
+      decoration: InputDecoration(
+        contentPadding: EdgeInsets.symmetric(
+          horizontal: 12.w,
+          vertical: 12.h,
         ),
-        textAlignVertical: TextAlignVertical.center,
-        obscureText: obscureText,
-        obscuringCharacter: '*',
-        onTapOutside: (event) {
-          FocusScope.of(context).unfocus();
-        },
-        validator: validator,
-        keyboardType: keyboardType,
-        decoration: InputDecoration(
-          contentPadding: EdgeInsets.symmetric(
-            horizontal: 12.w,
-            vertical: 16,
-          ),
-          suffixIcon: suffixIcon,
-          filled: true,
-          fillColor: fillColor ?? const Color(0xFFF6F6F6),
-          hintText: hintText,
-          hintStyle: TextStyle(
-            fontSize: 15.sp,
-            fontWeight: FontWeight.w400,
-            color: Color(0xff686F80),
-          ),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.r),
-            borderSide: BorderSide.none,
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.r),
-            borderSide: borderSide ?? BorderSide.none,
-          ),
+        suffixIcon: suffixIcon,
+        filled: true,
+        fillColor: fillColor ?? const Color(0xFFF6F6F6),
+        hintText: hintText,
+        hintStyle: TextStyle(
+          fontSize: 15.sp,
+          fontWeight: FontWeight.w400,
+          color: Color(0xff686F80),
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.r),
+          borderSide: BorderSide.none,
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.r),
+          borderSide: borderSide ?? BorderSide.none,
+        ),
 
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.r),
-            borderSide: BorderSide(
-              width: 3,
-              color: ColorManger.primary,
-            ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.r),
+          borderSide: BorderSide(
+            width: 3,
+            color: ColorManger.primary,
           ),
+        ),
 
-          errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.r),
-            borderSide: BorderSide(
-              width: 3,
-              color: Colors.red,
-            ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.r),
+          borderSide: BorderSide(
+            width: 3,
+            color: Colors.red,
           ),
         ),
       ),

@@ -2,9 +2,11 @@ import 'package:animooo/core/functions/app_validators.dart';
 import 'package:animooo/core/resources/color_manger.dart';
 import 'package:animooo/core/widgets/custom_required_feild.dart';
 import 'package:animooo/core/widgets/custom_required_password.dart';
+import 'package:animooo/features/auth/presentation/controller/sign_up_cubit.dart';
 import 'package:animooo/features/auth/presentation/widgets/sign%20up/required_rules_for_password_sign_up.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -14,38 +16,14 @@ import 'custom_select_your_image_widget.dart';
 class FormSignUp extends StatelessWidget {
   const FormSignUp({
     super.key,
-    required this.formKey,
-    required this.onPressedAtEyePassword,
-    this.visibility,
-    required this.onPressedAtEyeConfirmPassword,
-    required this.firstNameController,
-    required this.lastNameController,
-    required this.emailController,
-    required this.phoneController,
-    required this.passwordController,
-    required this.confirmPasswordController,
   });
-
-  final GlobalKey<FormState> formKey;
-  final VoidCallback onPressedAtEyePassword;
-  final VoidCallback onPressedAtEyeConfirmPassword;
-  final bool? visibility;
-  final TextEditingController firstNameController;
-
-  final TextEditingController lastNameController;
-
-  final TextEditingController emailController;
-
-  final TextEditingController phoneController;
-
-  final TextEditingController passwordController;
-
-  final TextEditingController confirmPasswordController;
-
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<SignUpCubit>();
+    return BlocBuilder<SignUpCubit, SignUpState>(
+  builder: (context, state) {
     return Form(
-      key: formKey,
+      key: cubit.formKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -57,7 +35,7 @@ class FormSignUp extends StatelessWidget {
             },
             text: 'First Name ',
             hintText: 'Enter your first name',
-            controller: firstNameController,
+            controller:cubit.firstNameController ,
           ),
           CustomRequiredFeild(
             validator: (value) {
@@ -65,12 +43,12 @@ class FormSignUp extends StatelessWidget {
             },
             text: 'Last Name',
             hintText: 'Enter your Last name',
-            controller: lastNameController,
+            controller: cubit.lastNameController,
           ),
           CustomRequiredFeild(
             text: 'Email',
             hintText: 'Enter your email address',
-            controller: emailController,
+            controller: cubit.emailController,
             validator: (value) {
               return AppValidators.emailValidator(value);
             },
@@ -78,23 +56,33 @@ class FormSignUp extends StatelessWidget {
           CustomRequiredFeild(
             text: 'Phone',
             hintText: 'Enter your Phone ',
-            controller: phoneController,
+            controller: cubit.phoneController,
+            validator: (value) {
+              return AppValidators.phoneValidator(value);
+            },
           ),
           CustomRequiredPassword(
+            validator: (value) {
+            return AppValidators.passwordValidator(value);
+            },
             text: 'Password',
             hintText: '********',
-            onPressedAtEye: onPressedAtEyePassword,
-            visibilepassword: visibility!,
-            controller: passwordController,
+            onPressedAtEye: cubit.togglePasswordVisibility,
+            visibilepassword: cubit.isPasswordHidden,
+            controller: cubit.passwordController,
+
           ),
           SizedBox(height: 8.h),
           RequiredRulesForPasswordSignUp(),
           CustomRequiredPassword(
             text: 'Confirm Password',
             hintText: '********',
-            onPressedAtEye: onPressedAtEyeConfirmPassword,
-            visibilepassword: visibility!,
-            controller: confirmPasswordController,
+            onPressedAtEye: cubit.toggleConfirmPasswordVisibility,
+            visibilepassword: cubit.isConfirmPasswordHidden,
+            controller: cubit.confirmPasswordController,
+            validator: (value) {
+              return AppValidators.passwordValidator(value);
+            },
           ),
           Gap(16.h),
           Text(
@@ -109,5 +97,7 @@ class FormSignUp extends StatelessWidget {
         ],
       ),
     );
+  },
+);
   }
 }

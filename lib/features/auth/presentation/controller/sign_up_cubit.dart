@@ -14,7 +14,8 @@ class SignUpCubit extends Cubit<SignUpState> {
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
-  bool isPasswordHidden = true;
+  bool isPasswordHidden = false;
+  bool isConfirmPasswordHidden = false;
 
   @override
   Future<void> close() {
@@ -29,6 +30,10 @@ class SignUpCubit extends Cubit<SignUpState> {
 
   void togglePasswordVisibility() {
     isPasswordHidden = !isPasswordHidden;
+    emit(SignUpChangePasswordVisibility());
+  }
+  void toggleConfirmPasswordVisibility() {
+    isConfirmPasswordHidden = !isConfirmPasswordHidden;
     emit(SignUpChangePasswordVisibility());
   }
 }
