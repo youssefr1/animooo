@@ -36,7 +36,7 @@ class CustomRequiredFeild extends StatelessWidget {
           ),
         ),
         SizedBox(height: 6.h),
-        Custom_text_form_feild(
+        CustomTextFormFeild(
           validator: validator,
           hintText: hintText,
           keyboardType: TextInputType.emailAddress,

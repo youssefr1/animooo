@@ -44,7 +44,7 @@ class CustomRequiredPassword extends StatelessWidget {
           ),
         ),
         SizedBox(height: 6.h),
-        Custom_text_form_feild(
+        CustomTextFormFeild(
           validator: validator,
           obscureText: !visibilepassword,
           hintText: hintText,

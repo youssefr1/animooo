@@ -6,44 +6,46 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../../core/resources/color_manger.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
   const CustomAppBar({
-    super.key,
-    required this.text,
+    super.key, required this.text,
   });
-
   final String text;
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.white,
-      titleSpacing: -10,
+      toolbarHeight: kToolbarHeight,
+      titleSpacing: -14,
       leadingWidth: 53.w,
-
-      leading: IconButton(
-        onPressed: () {
-          context.pop();
+      backgroundColor: Colors.white,
+      leading:  InkWell(
+        onTap: (){
+          if (context.canPop()) {
+            context.pop();
+          }
         },
-        icon: Icon(
-          Icons.arrow_back_ios_new,
-          color: ColorManger.primary,
-          size: 20.sp,
-        ),
-      ),
+        child: Padding(
+          padding: const EdgeInsets.only(top: 2),
+          child: Center(
+            child: Icon(
+              Icons.arrow_back_ios_new,
+              color: ColorManger.primary,
+              size: 20.sp,
 
-      title: Text(
-        text,
-        style: TextStyle(
-          fontSize: 20.sp,
-          fontFamily: GoogleFonts.poppins().fontFamily,
-          color: ColorManger.primary,
-          fontWeight: FontWeight.w400,
+            ),
+          ),
         ),
-      ),
+      ),title: Text(text,style: TextStyle(
+        fontSize: 20.sp,
+        fontFamily: GoogleFonts.poppins().fontFamily,
+        color: ColorManger.primary,
+        fontWeight: FontWeight.w400
+    ),),
     );
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+  // TODO: implement preferredSize
+  Size get preferredSize => Size.fromHeight(AppBar().preferredSize.height);
 }
