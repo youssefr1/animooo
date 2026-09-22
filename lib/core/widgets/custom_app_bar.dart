@@ -1,51 +1,70 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../../../core/resources/color_manger.dart';
+import '../../core/resources/color_manger.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
-    super.key, required this.text,
+    super.key,
+    required this.text,
+    this.onTap,
   });
+
   final String text;
+  final VoidCallback? onTap;
+
+  void _handlePop(BuildContext context) {
+    FocusManager.instance.primaryFocus?.unfocus();
+    if (onTap != null) {
+      onTap!();
+    } else if (context.canPop()) {
+      context.pop();
+    } else {
+      Navigator.of(context).maybePop();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       toolbarHeight: kToolbarHeight,
-      titleSpacing: -14,
-      leadingWidth: 53.w,
       backgroundColor: Colors.white,
-      leading:  InkWell(
-        onTap: (){
-          if (context.canPop()) {
-            context.pop();
-          }
-        },
-        child: Padding(
-          padding: const EdgeInsets.only(top: 2),
-          child: Center(
-            child: Icon(
-              Icons.arrow_back_ios_new,
-              color: ColorManger.primary,
-              size: 20.sp,
+      elevation: 0,
+      scrolledUnderElevation: 0,
+      automaticallyImplyLeading: false,
+      leadingWidth: 180.w,
+      leading: GestureDetector(
 
-            ),
+        onTap: () => _handlePop(context),
+        child: Padding(
+          padding: EdgeInsets.only(left: 12.w, top: 2),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(
+                Icons.arrow_back_ios_new,
+                color: ColorManger.primary,
+                size: 24.sp,
+              ),
+
+              Text(
+                text,
+                style: TextStyle(
+                  fontSize: 20.sp,
+                  fontFamily: GoogleFonts.poppins().fontFamily,
+                  color: ColorManger.primary,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ],
           ),
         ),
-      ),title: Text(text,style: TextStyle(
-        fontSize: 20.sp,
-        fontFamily: GoogleFonts.poppins().fontFamily,
-        color: ColorManger.primary,
-        fontWeight: FontWeight.w400
-    ),),
+      ),
     );
   }
 
   @override
-  // TODO: implement preferredSize
-  Size get preferredSize => Size.fromHeight(AppBar().preferredSize.height);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

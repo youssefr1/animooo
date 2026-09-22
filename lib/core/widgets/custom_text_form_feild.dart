@@ -52,6 +52,7 @@ class CustomTextFormFeild extends StatelessWidget {
       },
       validator: validator,
       keyboardType: keyboardType,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(
           horizontal: 12.w,
