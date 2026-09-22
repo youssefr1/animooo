@@ -33,7 +33,7 @@ class SignUpBody extends StatelessWidget {
               // App LOGO
               AppLogoWidget(),
               Text(
-                'ANIMOOO',
+                'ANIMOOO   ',
                 style: GoogleFonts.originalSurfer(
                   fontSize: 12.sp,
                   fontWeight: FontWeight.bold,
