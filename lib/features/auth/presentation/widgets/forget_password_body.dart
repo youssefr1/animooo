@@ -46,7 +46,7 @@ class ForgetPasswordBody extends StatelessWidget {
                 ],
               ),
             ),
-            Gap(56.h),
+            SizedBox(height: 56.h,),
             CustomRequiredFeild( text: 'Email', hintText: 'Enter your email address', controller: TextEditingController(),),
             Gap(100),
             CustomButton(text: 'Send  Code', onPressed: (){

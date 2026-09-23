@@ -39,7 +39,7 @@ class LoginForm extends StatelessWidget {
           SizedBox(height: 8.h),
           CustomRequiredPassword(
             onPressedAtEye: onPressedAtEye,
-            visibilepassword: visibility!,
+            visiblePassword: visibility!,
             text: 'Password',
             hintText: '********',
             controller: TextEditingController(),

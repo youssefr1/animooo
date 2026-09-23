@@ -26,7 +26,7 @@ class OtpVerificationBodyView extends StatelessWidget {
             print(value);
 
           },),
-          Gap(41),
+          Gap(41.h),
           CustomButton(text: 'Confirm ', onPressed: (){
             context.push(AppRouter.createPassword);
           }),

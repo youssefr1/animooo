@@ -14,7 +14,7 @@ class RequiredRulesForPasswordSignUp
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        TitleRules(),
+       if(ConstsListsManger.passwordRequirements.any((element) => element['valid'] == false)) TitleRules(),
         SizedBox(height: 11.h),
         SizedBox(
           height: 80.h,
@@ -22,6 +22,7 @@ class RequiredRulesForPasswordSignUp
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),
             itemBuilder: (context, index) {
+              final isValid = ConstsListsManger.passwordRequirements[index]['valid'];
               return RichText(
                 textAlign: TextAlign.start,
                 text: TextSpan(
@@ -32,19 +33,27 @@ class RequiredRulesForPasswordSignUp
                       child: Icon(
                         Icons.circle,
                         size: 5.sp,
-                        color: Color(0xffFC1B1A),
+                        color: isValid == true
+                            ? Colors.green
+                            : const Color(0xffFC1B1A),
                       ),
                     ),
-                    WidgetSpan(child: SizedBox(width: 3.w)),
+                    WidgetSpan(
+                      child: SizedBox(width: 3.w),
+                    ),
                     TextSpan(
                       text: ConstsListsManger
-                          .passwordRequirements[index],
+                          .passwordRequirements[index]['title'],
                       style: TextStyle(
-                        fontFamily:
-                            GoogleFonts.poppins().fontFamily,
+                        fontFamily: GoogleFonts.poppins().fontFamily,
                         fontSize: 8.sp,
-                        color: Color(0xffFC1B1A),
+                        color: isValid == true
+                            ? Colors.green
+                            : const Color(0xffFC1B1A),
                         fontWeight: FontWeight.w600,
+                        decoration: isValid == true
+                            ? TextDecoration.lineThrough
+                            : TextDecoration.none,
                       ),
                     ),
                   ],

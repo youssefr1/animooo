@@ -9,11 +9,8 @@ import '../../../../../../core/widgets/custom_text_form_feild.dart';
 class CustomRequiredFeild extends StatelessWidget {
   const CustomRequiredFeild(
       {super.key,  required this.text, required this.hintText, required this.controller,  this.validator});
-
   final String text;
-
   final String hintText;
-
  final TextEditingController controller;
  final FormFieldValidator? validator;
 
