@@ -51,7 +51,7 @@ class AppValidators {
 
   static bool isStrongPassword(String value) {
     final passwordRegex = RegExp(
-      r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>_\-+=/\\]).{12,}$',
+      r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$',
     );
 
     return passwordRegex.hasMatch(value);
@@ -59,9 +59,9 @@ class AppValidators {
 
   static String? passwordValidator(String value) {
     if (value == null || value.trim().isEmpty) {
-      return 'this field is required';
+      return '';
     } else if (isStrongPassword(value) == false) {
-      return 'Enter valid password ';
+      return '';
     } else {
       return null;
     }

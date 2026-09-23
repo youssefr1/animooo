@@ -30,7 +30,7 @@ class CreateNewPasswordBody extends StatelessWidget {
             Gap(10),
             CustomRequiredPassword(
               onPressedAtEye: () {},
-              visibilepassword: true,
+              visiblePassword: true,
               text: 'New Password',
               hintText: '********',
               controller: TextEditingController(),
@@ -39,7 +39,7 @@ class CreateNewPasswordBody extends StatelessWidget {
             RequiredRulesForPasswordSignUp(),
             CustomRequiredPassword(
               onPressedAtEye: () {},
-              visibilepassword: true,
+              visiblePassword: true,
               text: 'Confirm Password',
               hintText: '********',
               controller: TextEditingController(),

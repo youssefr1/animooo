@@ -17,7 +17,7 @@ import '../../controller/sign_up_cubit.dart';
 import 'botton_nav_bar_sign_up.dart';
 
 class SignUpBody extends StatelessWidget {
-  SignUpBody({super.key});
+  const SignUpBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class SignUpBody extends StatelessWidget {
               // App LOGO
               AppLogoWidget(),
               Text(
-                'ANIMOOO   ',
+                'ANIMOOO',
                 style: GoogleFonts.originalSurfer(
                   fontSize: 12.sp,
                   fontWeight: FontWeight.bold,

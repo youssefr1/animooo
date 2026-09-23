@@ -9,7 +9,7 @@ class TitleRules extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
+    return  Text(
       'Please add all necessary characters to create safe password.',
       style: TextStyle(
         fontFamily: GoogleFonts.poppins().fontFamily,

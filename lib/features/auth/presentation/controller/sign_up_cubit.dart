@@ -2,6 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
+import '../../../../core/resources/consts_lists_mahnger.dart';
+
 part 'sign_up_state.dart';
 
 class SignUpCubit extends Cubit<SignUpState> {
@@ -35,5 +37,23 @@ class SignUpCubit extends Cubit<SignUpState> {
   void toggleConfirmPasswordVisibility() {
     isConfirmPasswordHidden = !isConfirmPasswordHidden;
     emit(SignUpChangePasswordVisibility());
+  }
+  void validatePasswordRules(String value) {
+    ConstsListsManger.passwordRequirements[0]['valid'] =
+        value.length >= 8;
+
+    ConstsListsManger.passwordRequirements[1]['valid'] =
+        value.contains(RegExp(r'[A-Z]'));
+
+    ConstsListsManger.passwordRequirements[2]['valid'] =
+        value.contains(RegExp(r'[a-z]'));
+
+    ConstsListsManger.passwordRequirements[3]['valid'] =
+        value.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'));
+
+    ConstsListsManger.passwordRequirements[4]['valid'] =
+        value.contains(RegExp(r'[0-9]'));
+
+    emit(SignUpPasswordRulesChanged());
   }
 }
